@@ -9,13 +9,13 @@ public:
 	// Loop functions
 	void Init();
 	void UpdateGame();
-	void RunLoop(int t);
+	void RunLoop();
 
 	// Getters and Setters
-	std::vector<Entity*> GetEntitiesAtPos(Vector3 t)
+	std::vector<class Entity*> GetEntitiesAtPos(Vector3 t)
 	{
 		// Output vector
-		std::vector<Entity*> ent;
+		std::vector<class Entity*> ent;
 		// Loop through entites
 		for (int i = 0; i < mEntities.size(); i++)
 		{
@@ -29,9 +29,13 @@ public:
 		return ent;
 	}
 	int GetTurns() { return mTurns; }
+	void AddEntity(class Entity* e) { mEntities.push_back(e); }
+	void RemoveEntity(int id) { for (size_t i = 0; i < mEntities.size(); i++) { if (mEntities[i]->GetID() == id) { mEntities.erase(mEntities.begin()+i); break; } } }
+	int GetNextID() { mCurrID++; return mCurrID; }
 
 private:
-	std::vector<Entity*> mEntities;
-	World* mWorld;
+	std::vector<class Entity*> mEntities;
+	class World* mWorld;
 	int mTurns;
+	int mCurrID;
 };	

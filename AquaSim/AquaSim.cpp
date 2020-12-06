@@ -5,6 +5,6 @@ int main()
 {
     Game game;
     game.Init();
-    game.RunLoop(game.GetTurns());
+    game.RunLoop();
     return 0;
 }

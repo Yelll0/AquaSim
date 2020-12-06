@@ -1,8 +1,10 @@
 #pragma once
 #include <iostream>
 #include <cstdlib>
+#include <cmath>
 #include <vector>
+#include <string>
 #include "Math.h"
-#include "Game.h"
 #include "Entity.h"
 #include "World.h"
+#include "Game.h"

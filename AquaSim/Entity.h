@@ -6,34 +6,38 @@ class Entity
 public: 
 	// Constructor
 	Entity(
-		Game* g,
-		World* w,
+		class Game* g,
+		class World* w,
 		// Base values
 		// Speed
 		float bSp, 
 		// Size
 		float bSz,
 		// Position
-		int x, int y, int z
+		Vector3 p,
+		// Parent ID
+		int pID
 		);
-	~Entity();
 
 	void Update();
 
 	void Birth();
 	void Move();
+	void Die();
+	void Eat();
 
 	// Getters and Setters
 	float GetFood() { return mFood; }
-	float SetFood(float f) { mFood = f; }
 	int GetAge() { return mAge; }
 	Vector3 GetPos() { return mPos; }
 	Vector3 GetTile() { return mTile; }
+	float GetFoodThresh() { return mFoodThresh; }
+	int GetID() { return mID; }
 
 private:
 	// Game and World
-	Game* mGame;
-	World* mWorld;
+	class Game* mGame;
+	class World* mWorld;
 
 	// Non-Inherited Properties
 	float mFood;
@@ -46,5 +50,6 @@ private:
 	float mSize;
 	float mMeta;
 	float mFoodThresh;
+	int mID;
+	int mParentID;
 };
-
